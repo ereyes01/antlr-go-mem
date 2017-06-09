@@ -9,10 +9,17 @@ open on the antlr4 repository. In here we have:
 - `jstest.go`
     - Accepts a filename of a Javascript file
     - Prints the text of every rule encountered in the file
+    - Enables the Go profiler over HTTP port 6060
+        - [Useful profiler operations](https://golang.org/pkg/net/http/pprof/)
 - `good.js`
     - Sample JS code that parses correctly without issue
 - `bad.js`
     - JS code that eventually parses and works, but not after first allocating almost 8GB RAM
+- `profile001.svg`
+    - Graphical heap profile taken when resident mem was ~2.3GB
+    - To take your own heap snapshot, run the following while the test is running:
+        - `go tool pprof http://localhost:6060/debug/pprof/heap`
+        - In the CLI, run `svg`, or run `top` to see it in text form (svg is more comprehensive)
 
 To reproduce first install dependencies:
 
@@ -32,4 +39,6 @@ To run the parser and cause the memory issue:
 go run js.go -file bad.js
 ```
 
-WARNING- Make sure you run on a system with plenty of free memory!
+WARNING- Make sure you run this on a system with plenty of free memory!
+
+The test takes a while- several minutes.
