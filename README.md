@@ -1,6 +1,6 @@
 ## Demonstration of ANTLR4 Go Explosive Memory Growth
 
-This repo contains a grammar and code that reproduces issue antlr/antlr4#1901, which I've opened against the antlr4 repository. In here we have:
+This repo contains a grammar and code that reproduces issue [antlr/antlr4#1901](https://github.com/antlr/antlr4/issues/1901), which I've opened against the antlr4 repository. In here we have:
 
 - `./parser`
     - A grammar for Javascript ES5 with a Go target (I've just PR'ed to the grammars-v4 repo)
